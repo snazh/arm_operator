@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Odoo
+*.log
+*.pot
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.DS_Store
+.idea/
+.vscode/
+*.~*
+
+# Docker
+.env
+*.pid
+*.seed
+*.db
+*.sqlite
+*.dump
+docker-compose.override.yml
+
+# Local addons data
+odoo-web-data/
+addons/*/static/lib/
+addons/*/i18n/*.pot
+addons/*/i18n/*.mo
+
+# PyCharm & VSCode project settings
+*.iml
+*.ipr
+*.iws
+.vscode/
+.idea/
+
+# Byte-compiled / cache
+*.py[cod]
+__pycache__/
+.mypy_cache/
+.pytest_cache/

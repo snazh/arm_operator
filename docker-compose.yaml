@@ -1,0 +1,48 @@
+#Odoo-docker-directory
+#├── custom_addons
+#├── config
+#│   └── odoo.conf
+#├── docker-compose.yaml
+#├── odoo_pg_pass
+#└── sessions
+
+# Create a config file inside the config directory with the following content
+# [options]
+# addons_path = /mnt/extra-custom_addons
+
+# docker-compose.yaml
+version: '3.1'
+services:
+  web:
+    image: odoo:18.0
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8069:8069"
+
+    volumes:
+      - ./config:/etc/odoo
+      - ./custom_addons:/mnt/extra-addons
+    environment:
+      - PASSWORD_FILE=/run/secrets/postgresql_password
+    secrets:
+      - postgresql_password
+  db:
+    image: postgres:17
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgresql_password
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    secrets:
+      - postgresql_password
+volumes:
+  odoo-db-data:
+
+secrets:
+  postgresql_password:
+    file: odoo_pg_pass

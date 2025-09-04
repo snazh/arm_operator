@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_arm_operator,access_arm_operator,model_arm_operator,,1,1,1,1
