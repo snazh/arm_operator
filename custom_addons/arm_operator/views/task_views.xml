@@ -40,52 +40,45 @@
             <kanban default_group_by="status">
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="o_kanban_record o_kanban_card my_task_card"
-                             t-attf-class="status-{{ record.status.raw_value }}">
-                            <div class="d-flex justify-content-between align-items-center w-100 p-2">
-                                <div>
-                                    <strong>
-                                        <field name="id"/>
-                                    </strong>
-                                </div>
-                                <div>
+                        <div t-attf-class="o_kanban_record o_kanban_card my_task_card" >
+                            <!-- Заголовок -->
+                            <div class="task-header">
+                                <strong>
+                                    <field name="id"/>
+                                </strong>
+                                <span class="task-title">
                                     <field name="name"/>
-                                </div>
-                                <div>
-                                    <field name="status"/>
-                                </div>
+                                </span>
 
-                                <!-- Динамические кнопки -->
-                                <div>
-                                    <t t-if="record.status.raw_value == 'ready'">
-                                        <button type="object"
-                                                name="action_start_work"
-                                                string="Взять в работу"
-                                                class="btn btn-primary btn-sm"/>
-                                    </t>
-                                    <t t-if="record.status.raw_value == 'in_progress'">
-                                        <button type="object"
-                                                name="action_done"
-                                                string="Завершить"
-                                                class="btn btn-success btn-sm"/>
-                                        <button type="object"
-                                                name="action_reject"
-                                                string="Брак"
-                                                class="btn btn-danger btn-sm"/>
-                                    </t>
-                                </div>
                             </div>
 
-                            <div class="d-flex justify-content-around p-2">
-                                <button type="object" name="action_open_details"
-                                        class="btn btn-link">Подробнее
-                                </button>
-                                <button type="object" name="action_open_files"
-                                        class="btn btn-link">Файлы
-                                </button>
+                            <!-- Тело карточки -->
+                            <div class="task-body">
+                                <field name="status"/>
+                            </div>
+
+                            <!-- Кнопки действий -->
+                            <div class="task-actions">
+                                <t t-if="record.status.raw_value == 'ready'">
+                                    <button type="object" name="action_start_work" string="Взять в работу"
+                                            class="btn btn-primary"/>
+                                </t>
+                                <t t-if="record.status.raw_value == 'in_progress'">
+                                    <button type="object" name="action_done" string="Завершить"
+                                            class="btn btn-success"/>
+                                    <button type="object" name="action_reject" string="Брак" class="btn btn-danger"/>
+                                </t>
+                            </div>
+
+                            <!-- Нижние ссылки -->
+                            <div class="task-footer">
+                                <button type="object" name="action_open_details" class="btn btn-link">Подробнее</button>
+                                <button type="object" name="action_open_files" class="btn btn-link">Файлы</button>
                             </div>
                         </div>
+
                     </t>
+
                 </templates>
             </kanban>
         </field>

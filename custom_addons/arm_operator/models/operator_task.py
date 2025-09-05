@@ -55,3 +55,6 @@ class OperatorTask(models.Model):
             "context": {"default_res_model": "operator.task", "default_res_id": self.id},
             "target": "current",
         }
+
+
+
