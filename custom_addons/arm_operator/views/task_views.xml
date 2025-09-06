@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- List view -->
+
     <record id="view_operator_task_list" model="ir.ui.view">
         <field name="name">operator.task.view.list</field>
         <field name="model">operator.task</field>
@@ -14,7 +14,7 @@
         </field>
     </record>
 
-    <!-- Form view -->
+
     <record id="view_operator_task_form" model="ir.ui.view">
         <field name="name">operator.task.view.form</field>
         <field name="model">operator.task</field>
@@ -84,14 +84,14 @@
         </field>
     </record>
 
-    <!-- Window action -->
+
     <record id="action_operator_task" model="ir.actions.act_window">
         <field name="name">Задания</field>
         <field name="res_model">operator.task</field>
         <field name="view_mode">kanban,list,form</field>
     </record>
 
-    <!-- Menu items -->
+
     <menuitem id="menu_operator_root"
               name="АРМ"
               sequence="10"/>

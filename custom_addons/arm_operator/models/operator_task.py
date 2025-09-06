@@ -22,21 +22,18 @@ class OperatorTask(models.Model):
                 task.start_time = fields.Datetime.now()
 
     def action_done(self):
-        """Завершить задачу"""
         for task in self:
             if task.status == "in_progress":
                 task.status = "done"
                 task.end_time = fields.Datetime.now()
 
     def action_reject(self):
-        """Пометить задачу браком"""
         for task in self:
             if task.status == "in_progress":
                 task.status = "reject"
                 task.end_time = fields.Datetime.now()
 
     def action_open_details(self):
-        """Открыть форму"""
         return {
             "type": "ir.actions.act_window",
             "res_model": "operator.task",
@@ -46,7 +43,7 @@ class OperatorTask(models.Model):
         }
 
     def action_open_files(self):
-        """Открыть вложения"""
+
         return {
             "type": "ir.actions.act_window",
             "res_model": "ir.attachment",
