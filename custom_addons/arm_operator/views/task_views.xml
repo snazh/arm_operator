@@ -47,14 +47,15 @@
                                     <field name="id"/>
                                 </strong>
                                 <span class="task-title">
-                                    <field name="name"/>
+                                    <field name="status"/>
                                 </span>
 
                             </div>
 
                             <!-- Тело карточки -->
                             <div class="task-body">
-                                <field name="status"/>
+                                <field name="name"/>
+
                             </div>
 
                             <!-- Кнопки действий -->
@@ -73,7 +74,6 @@
                             <!-- Нижние ссылки -->
                             <div class="task-footer">
                                 <button type="object" name="action_open_details" class="btn btn-link">Подробнее</button>
-                                <button type="object" name="action_open_files" class="btn btn-link">Файлы</button>
                             </div>
                         </div>
 

@@ -42,16 +42,6 @@ class OperatorTask(models.Model):
             "target": "current",
         }
 
-    def action_open_files(self):
-
-        return {
-            "type": "ir.actions.act_window",
-            "res_model": "ir.attachment",
-            "view_mode": "kanban,tree,form",
-            "domain": [("res_model", "=", "operator.task"), ("res_id", "=", self.id)],
-            "context": {"default_res_model": "operator.task", "default_res_id": self.id},
-            "target": "current",
-        }
 
 
 
